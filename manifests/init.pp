@@ -121,7 +121,9 @@ class ssh (
       $default_sshd_config_serverkeybits       = '1024'
       $default_sshd_config_hostkey             = [ '/etc/ssh/ssh_host_rsa_key' ]
       $ssh_config_global_known_hosts_group     = 'system',
-      $sshd_banner_group                       = 'system'
+      $sshd_banner_group                       = 'system',
+      $ssh_config_group                        = 'system',
+      $sshd_config_group                       = 'system'
     }
     'RedHat': {
       $default_packages                        = ['openssh-server',
