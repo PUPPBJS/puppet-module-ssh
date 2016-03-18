@@ -289,12 +289,6 @@ class ssh (
     $sshd_config_mode_real = $sshd_config_mode
   }
 
-  if $sshd_config_xauth_location == 'USE_DEFAULTS' {
-    $sshd_config_xauth_location_real = $default_sshd_config_xauth_location
-  } else {
-    $sshd_config_xauth_location_real = $sshd_config_xauth_location
-  }
-
   if $ssh_package_source == 'USE_DEFAULTS' {
     $ssh_package_source_real = $default_ssh_package_source
   } else {
