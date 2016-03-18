@@ -39,7 +39,7 @@ class ssh (
   $sshd_config_challenge_resp_auth     = 'yes',
   $sshd_config_print_motd              = 'yes',
   $sshd_config_use_dns                 = 'USE_DEFAULTS',
-  $sshd_config_authkey_location        = undef,
+  $sshd_config_authkey_location        = 'USE_DEFAULTS',
   $sshd_config_strictmodes             = undef,
   $sshd_config_serverkeybits           = 'USE_DEFAULTS',
   $sshd_config_banner                  = 'none',
@@ -111,8 +111,8 @@ class ssh (
       $default_ssh_config_use_roaming          = 'no'
       $default_sshd_config_subsystem_sftp      = '/usr/sbin/sftp-server'
       $default_sshd_config_mode                = '0600'
-      $default_sshd_config_use_dns             = 'yes'
       $default_sshd_config_xauth_location      = undef
+      $default_sshd_config_use_dns             = 'yes'
       $default_sshd_use_pam                    = undef
       $default_sshd_gssapikeyexchange          = undef
       $default_sshd_pamauthenticationviakbdint = undef
@@ -288,6 +288,16 @@ class ssh (
     $sshd_config_mode_real = $default_sshd_config_mode
   } else {
     $sshd_config_mode_real = $sshd_config_mode
+  }
+
+  if $sshd_config_xauth_location == 'USE_DEFAULTS' {
+    $sshd_config_xauth_location_real = $default_sshd_config_xauth_location
+  } else {
+    $sshd_config_xauth_location_real = $sshd_config_xauth_location
+  }
+
+  if $sshd_config_xauth_location_real != undef {
+    validate_absolute_path($sshd_config_xauth_location_real)
   }
 
   if $ssh_package_source == 'USE_DEFAULTS' {
@@ -488,6 +498,10 @@ class ssh (
 
   if $sshd_gssapicleanupcredentials_real != undef {
     validate_re($sshd_gssapicleanupcredentials_real, '^(yes|no)$', "ssh::sshd_gssapicleanupcredentials may be either 'yes' or 'no' and is set to <${sshd_gssapicleanupcredentials_real}>.")
+  }
+
+  if $sshd_config_authkey_location != undef {
+    validate_string($sshd_config_authkey_location)
   }
 
   if $sshd_config_maxstartups != undef {
