@@ -295,10 +295,6 @@ class ssh (
     $sshd_config_xauth_location_real = $sshd_config_xauth_location
   }
 
-  if $sshd_config_xauth_location_real != undef {
-    validate_absolute_path($sshd_config_xauth_location_real)
-  }
-
   if $ssh_package_source == 'USE_DEFAULTS' {
     $ssh_package_source_real = $default_ssh_package_source
   } else {
@@ -499,9 +495,6 @@ class ssh (
     validate_re($sshd_gssapicleanupcredentials_real, '^(yes|no)$', "ssh::sshd_gssapicleanupcredentials may be either 'yes' or 'no' and is set to <${sshd_gssapicleanupcredentials_real}>.")
   }
 
-  if $sshd_config_authkey_location != undef {
-    validate_string($sshd_config_authkey_location)
-  }
 
   if $sshd_config_maxstartups != undef {
     validate_re($sshd_config_maxstartups,'^(\d+)+(\d+?:\d+?:\d+)?$',
