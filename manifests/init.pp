@@ -60,7 +60,7 @@ class ssh (
   $sshd_banner_owner                   = 'root',
   $sshd_banner_group                   = 'root',
   $sshd_banner_mode                    = '0644',
-  $sshd_config_xauth_location          = undef,
+  $sshd_config_xauth_location          = 'USE_DEFAULTS',
   $sshd_config_subsystem_sftp          = 'USE_DEFAULTS',
   $sshd_kerberos_authentication        = undef,
   $sshd_password_authentication        = 'yes',
@@ -112,6 +112,7 @@ class ssh (
       $default_sshd_config_subsystem_sftp      = '/usr/sbin/sftp-server'
       $default_sshd_config_mode                = '0600'
       $default_sshd_config_use_dns             = 'yes'
+      $default_sshd_config_xauth_location      = undef
       $default_sshd_use_pam                    = undef
       $default_sshd_gssapikeyexchange          = undef
       $default_sshd_pamauthenticationviakbdint = undef
@@ -488,7 +489,6 @@ class ssh (
   if $sshd_gssapicleanupcredentials_real != undef {
     validate_re($sshd_gssapicleanupcredentials_real, '^(yes|no)$', "ssh::sshd_gssapicleanupcredentials may be either 'yes' or 'no' and is set to <${sshd_gssapicleanupcredentials_real}>.")
   }
-
 
   if $sshd_config_maxstartups != undef {
     validate_re($sshd_config_maxstartups,'^(\d+)+(\d+?:\d+?:\d+)?$',
