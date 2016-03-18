@@ -194,7 +194,7 @@ ForceCommand <%= @sshd_config_forcecommand %>
 #Banner none
 Banner <%= @sshd_config_banner %>
 
-<% if osfamily == "AIX" -%>
+<% if @osfamily == "AIX" -%>
 #XAuthLocation
 <% else -%>
 #XAuthLocation /usr/bin/xauth
