@@ -39,7 +39,7 @@ class ssh (
   $sshd_config_challenge_resp_auth     = 'yes',
   $sshd_config_print_motd              = 'yes',
   $sshd_config_use_dns                 = 'USE_DEFAULTS',
-  $sshd_config_authkey_location        = 'USE_DEFAULTS',
+  $sshd_config_authkey_location        = undef,
   $sshd_config_strictmodes             = undef,
   $sshd_config_serverkeybits           = 'USE_DEFAULTS',
   $sshd_config_banner                  = 'none',
