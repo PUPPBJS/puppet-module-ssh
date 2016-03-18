@@ -112,6 +112,7 @@ class ssh (
       $default_sshd_config_subsystem_sftp      = '/usr/sbin/sftp-server'
       $default_sshd_config_mode                = '0600'
       $default_sshd_config_use_dns             = 'yes'
+      $default_sshd_config_xauth_location      = undef
       $default_sshd_use_pam                    = undef
       $default_sshd_gssapikeyexchange          = undef
       $default_sshd_pamauthenticationviakbdint = undef
