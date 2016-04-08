@@ -110,8 +110,8 @@ class ssh (
       $default_ssh_package_adminfile           = undef
       $default_ssh_sendenv                     = true
       $default_ssh_config_use_roaming          = 'no'
-      $default_sshd_config_subsystem_sftp      = '\t/usr/sbin/sftp-server'
-      $default_sshd_config_mode                = '0600'
+      $default_sshd_config_subsystem_sftp      = '/usr/sbin/sftp-server'
+      $default_sshd_config_mode                = '0644'
       $default_sshd_config_xauth_location      = undef
       $default_sshd_config_use_dns             = 'yes'
       $default_sshd_use_pam                    = undef
@@ -134,7 +134,7 @@ class ssh (
       $default_ssh_sendenv                     = true
       $default_ssh_config_use_roaming          = 'no'
       $default_sshd_config_subsystem_sftp      = '/usr/libexec/openssh/sftp-server'
-      $default_sshd_config_mode                = '0600'
+      $default_sshd_config_mode                = '0644'
       $default_sshd_config_use_dns             = 'yes'
       $default_sshd_config_xauth_location      = '/usr/bin/xauth'
       $default_sshd_use_pam                    = 'yes'
