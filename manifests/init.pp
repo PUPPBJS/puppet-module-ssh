@@ -105,6 +105,7 @@ class ssh (
       $default_service_name                    = 'sshd'
       $default_ssh_config_hash_known_hosts     = 'no'
       $default_ssh_config_forward_x11_trusted  = 'yes'
+      $ssh_gssapiauthentication                = 'no',
       $default_ssh_package_source              = undef
       $default_ssh_package_adminfile           = undef
       $default_ssh_sendenv                     = true
